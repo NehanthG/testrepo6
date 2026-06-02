@@ -1,0 +1,17 @@
+name: composite usage
+on:
+  push:
+
+jobs:
+  compostie-action:
+    name: jon to test composite action
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v6.0.2
+     - uses: ./
+       id: compositeAction
+       with:
+         number1: 4
+         number2: 2
+     - run: echo ${{ steps.compositeAction.outputs.result }}
+         
